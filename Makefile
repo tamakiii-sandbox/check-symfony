@@ -17,6 +17,7 @@ check: |dependency/symfony/symfony dependency/tamakiii-sandbox/init-symfony-$(VE
 	@echo "require.php\t$(shell cat $(word 1,$|)/composer.json | jq -r '.require.php')"
 	@echo "---"
 	@echo "tamakiii-sandbox/init-symfony-$(VERSION)"
+	@echo "packages.symfony\t$(shell cat $(word 2,$|)/composer.lock | jq -r '.packages[]|select(.name=="symfony/symfony").version')"
 	@echo "require.php\t$(shell cat $(word 2,$|)/composer.json | jq -r '.require.php')"
 	@echo "platform.php\t$(shell cat $(word 2,$|)/composer.lock | jq -r '.platform.php')"
 	@echo "platform-overrides.php\t$(shell cat $(word 2,$|)/composer.lock | jq -r '.["platform-overrides"].php')"
