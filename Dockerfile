@@ -1,4 +1,4 @@
-FROM amazonlinux:2.0.20220719.0
+FROM --platform=linux/x86_64 amazonlinux:2.0.20220719.0
 
 ARG VERSION
 
